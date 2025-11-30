@@ -107,6 +107,35 @@ const ComponentsModule = (() => {
 
         // Setup logout functionality
         setupLogout();
+
+        // Fix navigation links based on current directory
+        fixNavLinks();
+    };
+
+    /**
+     * Fix navigation links for nested pages
+     * Adjusts relative paths when the user is in the 'pages/' directory
+     */
+    const fixNavLinks = () => {
+        const path = window.location.pathname;
+        // Only adjust if we are in the 'pages' directory
+        if (!path.includes('/pages/')) return;
+
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            // Fix link to home
+            if (href === 'index.html') {
+                link.setAttribute('href', '../index.html');
+            }
+
+            // Fix links to other pages (e.g., 'pages/activities.html' -> 'activities.html')
+            if (href.startsWith('pages/')) {
+                link.setAttribute('href', href.replace('pages/', ''));
+            }
+        });
     };
 
     /**
