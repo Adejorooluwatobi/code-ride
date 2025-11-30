@@ -7,12 +7,7 @@
 const ComponentsModule = (() => {
     // Get the base path for components - works in both local and deployed environments
     const getComponentPath = () => {
-        const path = window.location.pathname;
-        // Check if we are in the 'pages' directory
-        if (path.includes('/')) {
-            return '../components/';
-        }
-        // Otherwise assume we are at root
+        // Since all pages are now in the root directory, we can just return 'components/'
         return 'components/';
     };
 
@@ -227,7 +222,7 @@ const ComponentsModule = (() => {
         if (loginForm) {
             loginForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                window.location.href = '../index.html';
+                window.location.href = 'index.html';
             });
         }
 
@@ -243,7 +238,7 @@ const ComponentsModule = (() => {
         if (verifyCodeForm) {
             verifyCodeForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                window.location.href = '../index.html';
+                window.location.href = 'index.html';
             });
         }
     };
