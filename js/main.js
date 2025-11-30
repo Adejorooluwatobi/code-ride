@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const authPages = ['login.html', 'create-account.html', 'verify-code.html'];
     const currentPageFileName = window.location.pathname.split('/').pop();
 
-    // Only load header and footer if not on an authentication page
-    if (!authPages.includes(currentPageFileName)) {
+    const isAuthPage = authPages.includes(currentPageFileName);
+
+    if (!isAuthPage) {
         // Load header and then initialize header-dependent scripts
         fetch(`/components/header.html`)
             .then(response => response.ok ? response.text() : Promise.reject('Failed to load header'))
@@ -27,11 +28,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })
             .catch(console.error);
+        
+        // Always call initializePageSpecifics for non-auth pages,
+        // even if header/footer fetching has issues.
+        // This ensures the driver mode toggle is set up.
+        initializePageSpecifics(); 
     } else {
         // For auth pages, directly initialize page-specific logic, as no header/footer is loaded
         initializePageSpecifics();
     }
-
 
     // Auth Form Submission Handlers
     const loginForm = document.getElementById('loginForm');
@@ -71,11 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = '/pages/login.html';
         }
     });
-
-    // Initialize page-specific scripts that might not depend on header/footer for other pages.
-    // This is called conditionally inside the fetch block for non-auth pages.
-    // We also need it for auth pages if they have special needs.
-    // For now, it's called in the non-auth branch only.
 });
 
 function initializeSideMenu() {
