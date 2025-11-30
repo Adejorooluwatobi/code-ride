@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Only load header and footer if not on an authentication page
     if (!authPages.includes(currentPageFileName)) {
         // Load header and then initialize header-dependent scripts
-        fetch(`/components/header.html`)
+        fetch('components/header.html')
             .then(response => response.ok ? response.text() : Promise.reject('Failed to load header'))
             .then(data => {
                 const headerPlaceholder = document.getElementById("header-placeholder");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(console.error);
 
         // Load footer and then initialize footer-dependent scripts
-        fetch(`/components/footer.html`)
+        fetch('components/footer.html')
             .then(response => response.ok ? response.text() : Promise.reject('Failed to load footer'))
             .then(data => {
                 const footerPlaceholder = document.getElementById("footer-placeholder");
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
             // Dummy login: always redirects to index.html
-            window.location.href = '/index.html';
+            window.location.href = 'index.html';
         });
     }
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
         createAccountForm.addEventListener('submit', function(event) {
             event.preventDefault();
             // Dummy create account: always redirects to verify-code.html
-            window.location.href = '/pages/verify-code.html';
+            window.location.href = 'pages/verify-code.html';
         });
     }
 
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         verifyCodeForm.addEventListener('submit', function(event) {
             event.preventDefault();
             // Dummy verification: any code redirects to index.html
-            window.location.href = '/index.html';
+            window.location.href = 'index.html';
         });
     }
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('click', function(event) {
         if (event.target && event.target.id === 'logoutButton') {
             event.preventDefault();
-            window.location.href = '/pages/login.html';
+            window.location.href = 'pages/login.html';
         }
     });
 
