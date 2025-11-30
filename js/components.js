@@ -7,13 +7,13 @@
 const ComponentsModule = (() => {
     // Get the base path for components - works in both local and deployed environments
     const getComponentPath = () => {
-        const isLocalFile = window.location.protocol === 'file:';
-        if (isLocalFile) {
-            // For local file:// protocol, use relative paths
-            return './components/';
+        const path = window.location.pathname;
+        // Check if we are in the 'pages' directory
+        if (path.includes('/pages/')) {
+            return '../components/';
         }
-        // For http/https, use root-relative paths
-        return '/components/';
+        // Otherwise assume we are at root
+        return 'components/';
     };
 
     const COMPONENT_PATH = getComponentPath();
@@ -38,14 +38,14 @@ const ComponentsModule = (() => {
         try {
             const componentPath = `${COMPONENT_PATH}${componentName}.html`;
             const response = await fetch(componentPath);
-            
+
             if (!response.ok) {
                 throw new Error(`Failed to load ${componentName}: ${response.status}`);
             }
-            
+
             const html = await response.text();
             const targetElement = document.getElementById(targetElementId);
-            
+
             if (targetElement) {
                 targetElement.innerHTML = html;
                 return true;
@@ -62,7 +62,7 @@ const ComponentsModule = (() => {
      */
     const loadComponents = async () => {
         const currentPage = getCurrentPageFileName();
-        
+
         // Skip header and footer for auth pages
         if (AUTH_PAGES.includes(currentPage)) {
             return {
@@ -73,7 +73,7 @@ const ComponentsModule = (() => {
 
         // Load header
         const headerLoaded = await loadComponent('header', 'header-placeholder');
-        
+
         // Load footer
         const footerLoaded = await loadComponent('footer', 'footer-placeholder');
 
@@ -118,7 +118,7 @@ const ComponentsModule = (() => {
         const menuIcon = document.getElementById('menuIcon');
         const closeIcon = document.getElementById('closeIcon');
         const headerTitle = document.getElementById('headerTitle');
-        
+
         // Set header title based on the document title
         if (headerTitle && document.title) {
             headerTitle.textContent = document.title.split(' - ')[0];
@@ -147,7 +147,7 @@ const ComponentsModule = (() => {
      */
     const updateActiveNav = () => {
         let currentPage = getCurrentPageFileName();
-        
+
         // Default to home if path is empty or just index.html
         if (currentPage === '' || currentPage === 'index.html') {
             currentPage = 'home';
@@ -213,7 +213,7 @@ const ComponentsModule = (() => {
                 isDriverMode = true;
                 updateModeUI();
             });
-            
+
             // Initial UI update
             updateModeUI();
         }
@@ -225,25 +225,25 @@ const ComponentsModule = (() => {
     const setupAuthForms = () => {
         const loginForm = document.getElementById('loginForm');
         if (loginForm) {
-            loginForm.addEventListener('submit', function(event) {
+            loginForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                window.location.href = '/pages/index.html';
+                window.location.href = '../index.html';
             });
         }
 
         const createAccountForm = document.getElementById('createAccountForm');
         if (createAccountForm) {
-            createAccountForm.addEventListener('submit', function(event) {
+            createAccountForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                window.location.href = '/pages/verify-code.html';
+                window.location.href = 'verify-code.html';
             });
         }
 
         const verifyCodeForm = document.getElementById('verifyCodeForm');
         if (verifyCodeForm) {
-            verifyCodeForm.addEventListener('submit', function(event) {
+            verifyCodeForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                window.location.href = '/pages/index.html';
+                window.location.href = '../index.html';
             });
         }
     };
@@ -252,10 +252,10 @@ const ComponentsModule = (() => {
      * Setup logout functionality
      */
     const setupLogout = () => {
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (event.target && event.target.id === 'logoutButton') {
                 event.preventDefault();
-                window.location.href = '/pages/login.html';
+                window.location.href = 'pages/login.html';
             }
         });
     };
@@ -270,6 +270,6 @@ const ComponentsModule = (() => {
 })();
 
 // Initialize components when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     ComponentsModule.initialize();
 });

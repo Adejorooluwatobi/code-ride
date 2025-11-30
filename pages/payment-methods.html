@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
 </head>
 <body class="bg-gray-50">
     <!-- Main App Container -->
@@ -18,43 +18,45 @@
         <!-- MAIN CONTENT AREA -->
         <main class="flex-1 overflow-auto">
             <div id="payment-methods" data-title="Payment Methods" class="page-content p-6 space-y-4">
-                <h2 class="text-xl font-bold text-gray-800">Linked Methods</h2>
-                <div class="bg-white p-4 rounded-xl shadow-md space-y-3">
-                    <!-- Method 1 -->
-                    <div class="flex items-center justify-between border-b pb-3">
+                <div class="bg-white p-6 rounded-xl shadow-md space-y-4">
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">Saved Cards</h3>
+                    
+                    <div class="flex items-center justify-between p-3 border rounded-lg border-blue-500 bg-blue-50">
                         <div class="flex items-center gap-3">
-                            <span class="text-2xl">💳</span>
+                            <div class="w-10 h-6 bg-blue-800 rounded text-white text-xs flex items-center justify-center font-bold">VISA</div>
                             <div>
-                                <p class="font-medium">MasterCard (**** 1234)</p>
-                                <p class="text-xs text-gray-500">Expires 12/26</p>
+                                <p class="font-semibold text-sm">•••• 4242</p>
+                                <p class="text-xs text-gray-500">Expires 12/25</p>
                             </div>
                         </div>
-                        <span class="text-blue-600 text-sm font-semibold">Default</span>
+                        <span class="text-blue-600 text-xs font-bold">Default</span>
                     </div>
-                    <!-- Method 2 -->
-                    <div class="flex items-center justify-between border-b py-3">
+
+                    <div class="flex items-center justify-between p-3 border rounded-lg hover:border-gray-400 transition cursor-pointer">
                         <div class="flex items-center gap-3">
-                            <span class="text-2xl">🏦</span>
+                            <div class="w-10 h-6 bg-red-600 rounded text-white text-xs flex items-center justify-center font-bold">MC</div>
                             <div>
-                                <p class="font-medium">Code-ride Wallet</p>
-                                <p class="text-xs text-gray-500">Balance: ₦12,500.00</p>
+                                <p class="font-semibold text-sm">•••• 5567</p>
+                                <p class="text-xs text-gray-500">Expires 09/24</p>
                             </div>
                         </div>
-                        <button class="text-blue-600 text-sm hover:underline">Set Default</button>
                     </div>
-                    <!-- Method 3 -->
-                    <div class="flex items-center justify-between pt-3">
+
+                    <button class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 font-semibold hover:border-blue-500 hover:text-blue-600 transition flex items-center justify-center gap-2">
+                        <span class="text-xl">+</span> Add New Card
+                    </button>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md space-y-4">
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">Other Methods</h3>
+                    <div class="flex items-center justify-between p-3 border rounded-lg hover:border-gray-400 transition cursor-pointer">
                         <div class="flex items-center gap-3">
                             <span class="text-2xl">💵</span>
-                            <p class="font-medium">Cash</p>
+                            <p class="font-semibold text-sm">Cash</p>
                         </div>
-                        <button class="text-blue-600 text-sm hover:underline">Set Default</button>
+                        <div class="w-4 h-4 rounded-full border border-gray-400"></div>
                     </div>
                 </div>
-                
-                <button class="w-full bg-blue-50 border-2 border-blue-200 text-blue-600 py-4 rounded-xl font-semibold mt-4 hover:bg-blue-100 transition">
-                    + Add New Payment Method
-                </button>
             </div>
         </main>
 
@@ -63,8 +65,8 @@
     </div>
 
     <!-- Load components module first (handles header/footer loading) -->
-    <script src="/js/components.js"></script>
+    <script src="../js/components.js"></script>
     <!-- Then load main app logic -->
-    <script src="/js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
