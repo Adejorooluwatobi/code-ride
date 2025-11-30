@@ -36,7 +36,9 @@ const ComponentsModule = (() => {
      */
     const loadComponent = async (componentName, targetElementId) => {
         try {
-            const componentPath = `${COMPONENT_PATH}${componentName}.html`;
+            // Add timestamp to prevent caching issues
+            const timestamp = new Date().getTime();
+            const componentPath = `${COMPONENT_PATH}${componentName}.html?v=${timestamp}`;
             const response = await fetch(componentPath);
 
             if (!response.ok) {
@@ -118,9 +120,12 @@ const ComponentsModule = (() => {
      */
     const fixNavLinks = () => {
         const path = window.location.pathname;
+        console.log('Current path:', path);
+
         // Only adjust if we are in the 'pages' directory
         if (!path.includes('/pages/')) return;
 
+        console.log('Adjusting navigation links for pages directory...');
         const links = document.querySelectorAll('a');
         links.forEach(link => {
             const href = link.getAttribute('href');
