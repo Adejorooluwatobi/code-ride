@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Code-ride - Your Ride, Your Way</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Main App Container -->
+    <div class="h-screen flex flex-col bg-gray-50 max-w-md mx-auto shadow-2xl">
+        
+        <!-- HEADER PLACEHOLDER -->
+        <div id="header-placeholder"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 overflow-auto">
+            <!-- VIEW TOGGLE (Rider/Driver Mode - Only visible on Home page) -->
+            <div id="viewToggle" class="bg-white border-b">
+                <div class="flex">
+                    <button id="riderModeBtn" class="flex-1 py-3 font-semibold text-blue-600 border-b-2 border-blue-600">
+                        Rider Mode
+                    </button>
+                    <button id="driverModeBtn" class="flex-1 py-3 font-semibold text-gray-500">
+                        Driver Mode
+                    </button>
+                </div>
+            </div>
+
+            <!-- HOME PAGE CONTENT -->
+            <div id="home" class="page-content flex flex-col h-full">
+                <!-- Rider View -->
+                <div id="riderView" class="flex flex-col h-full">
+                    <div class="flex-1 bg-gradient-to-br from-blue-100 to-green-100 relative">
+                        <!-- Map Placeholder -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <svg class="w-16 h-16 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                <p class="text-gray-600">Map View Area</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Location Card -->
+                        <div class="absolute top-4 left-4 right-4 bg-white rounded-xl shadow-lg p-4">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                <div class="flex-1">
+                                    <p class="text-sm text-gray-500">Pickup Location</p>
+                                    <input type="text" placeholder="Enter your location" class="w-full mt-1 text-gray-800 outline-none" value="Victoria Island, Lagos">
+                                </div>
+                            </div>
+                            <div class="border-t my-3"></div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-blue-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                <div class="flex-1">
+                                    <p class="text-sm text-gray-500">Destination</p>
+                                    <input type="text" placeholder="Where to?" class="w-full mt-1 text-gray-800 outline-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ride Options -->
+                    <div class="bg-white rounded-t-3xl shadow-2xl p-6">
+                        <h3 class="font-bold text-lg mb-4">Choose a ride</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">🚗</span>
+                                    <div>
+                                        <p class="font-semibold">Code-Economy</p>
+                                        <p class="text-sm text-gray-500">3 min away • 4 seats</p>
+                                    </div>
+                                </div>
+                                <p class="font-bold text-lg">₦2,500</p>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">🚙</span>
+                                    <div>
+                                        <p class="font-semibold">Code-Comfort</p>
+                                        <p class="text-sm text-gray-500">5 min away • 4 seats</p>
+                                    </div>
+                                </div>
+                                <p class="font-bold text-lg">₦3,800</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold mt-4 hover:bg-blue-700 transition">
+                            Request Code-ride
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Driver View -->
+                <div id="driverView" class="hidden flex flex-col h-full">
+                    <!-- Driver Header -->
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <p class="text-sm opacity-90">Today's Earnings</p>
+                                <p class="text-3xl font-bold">₦45,230</p>
+                            </div>
+                            <div class="bg-green-500 px-4 py-2 rounded-full font-semibold text-xs">ONLINE</div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div><p class="text-2xl font-bold">12</p><p class="text-xs opacity-80">Trips</p></div>
+                            <div><p class="text-2xl font-bold">4.8</p><p class="text-xs opacity-80">Rating</p></div>
+                            <div><p class="text-2xl font-bold">8h</p><p class="text-xs opacity-80">Online</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Active Ride Request -->
+                    <div class="flex-1 p-6 bg-gray-50">
+                        <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-blue-600">
+                            <h3 class="font-bold text-xl mb-4 text-center">No Active Ride Request</h3>
+                            <p class="text-center text-gray-500">You are currently online and waiting for a ride.</p>
+                            <div class="flex justify-center mt-6">
+                                <button class="bg-gray-200 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-300 transition">
+                                    Go Offline
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER PLACEHOLDER -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

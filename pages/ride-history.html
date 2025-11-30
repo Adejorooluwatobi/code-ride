@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ride History</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Main App Container -->
+    <div class="h-screen flex flex-col bg-gray-50 max-w-md mx-auto shadow-2xl">
+        
+        <!-- HEADER PLACEHOLDER -->
+        <div id="header-placeholder"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 overflow-auto">
+            <div id="ride-history" data-title="Ride History" class="page-content p-6 space-y-4">
+                <h2 class="text-xl font-bold text-gray-800">Past 30 Days</h2>
+                <div class="space-y-3">
+                    <!-- Ride 1 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <div class="flex justify-between items-center mb-2">
+                            <p class="font-semibold text-lg">V.I. to Lekki Phase 1</p>
+                            <p class="font-bold text-green-600">₦3,800</p>
+                        </div>
+                        <p class="text-sm text-gray-500">15 Nov, 10:30 AM | Code-Comfort</p>
+                        <p class="text-xs text-gray-400 mt-1">Driver: Emeka Nnamdi (4.9⭐)</p>
+                    </div>
+                    <!-- Ride 2 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-red-500">
+                        <div class="flex justify-between items-center mb-2">
+                            <p class="font-semibold text-lg">Ikeja to Airport</p>
+                            <p class="font-bold text-red-600">Cancelled</p>
+                        </div>
+                        <p class="text-sm text-gray-500">14 Nov, 08:15 PM | Rider Cancelled</p>
+                        <p class="text-xs text-gray-400 mt-1">Estimated: ₦6,500</p>
+                    </div>
+                    <!-- Ride 3 -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <div class="flex justify-between items-center mb-2">
+                            <p class="font-semibold text-lg">Yaba to Festac Town</p>
+                            <p class="font-bold text-green-600">₦8,500</p>
+                        </div>
+                        <p class="text-sm text-gray-500">13 Nov, 09:00 AM | Code-Premium</p>
+                        <p class="text-xs text-gray-400 mt-1">Driver: Tunde Alabi (4.7⭐)</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER PLACEHOLDER -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

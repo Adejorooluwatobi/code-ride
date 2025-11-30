@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Promotions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Main App Container -->
+    <div class="h-screen flex flex-col bg-gray-50 max-w-md mx-auto shadow-2xl">
+        
+        <!-- HEADER PLACEHOLDER -->
+        <div id="header-placeholder"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 overflow-auto">
+            <div id="promotions" data-title="Promotions" class="page-content p-6 space-y-4">
+                <h2 class="text-xl font-bold text-gray-800">Available Promotions</h2>
+
+                <!-- Promo 1 -->
+                <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-green-500">
+                    <p class="font-bold text-xl text-green-600 mb-1">50% Off Your Next Ride</p>
+                    <p class="text-sm text-gray-700">Use code: <span class="font-mono bg-gray-100 p-1 rounded">CODENEW50</span></p>
+                    <p class="text-xs text-gray-500 mt-2">Max discount ₦2,000. Expires 30 Nov.</p>
+                    <button class="mt-3 text-blue-600 font-semibold text-sm">Apply Now</button>
+                </div>
+
+                <!-- Promo 2 -->
+                <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-yellow-500">
+                    <p class="font-bold text-xl text-yellow-600 mb-1">Refer a Friend, Get ₦1,000</p>
+                    <p class="text-sm text-gray-700">Share your unique referral link.</p>
+                    <p class="text-xs text-gray-500 mt-2">Credit applied after their first completed trip.</p>
+                    <button class="mt-3 text-blue-600 font-semibold text-sm">Share Link</button>
+                </div>
+                
+                <h3 class="font-bold text-lg text-gray-700 border-b pb-2 mt-6">Voucher Codes</h3>
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Enter voucher code" class="flex-1 p-3 rounded-xl border border-gray-300">
+                    <button class="bg-blue-600 text-white px-4 rounded-xl font-semibold hover:bg-blue-700 transition">Apply</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER PLACEHOLDER -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

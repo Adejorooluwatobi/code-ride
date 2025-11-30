@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ride Activity</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Main App Container -->
+    <div class="h-screen flex flex-col bg-gray-50 max-w-md mx-auto shadow-2xl">
+        
+        <!-- HEADER PLACEHOLDER -->
+        <div id="header-placeholder"></div>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 overflow-auto">
+            <div id="activity" data-title="Ride Activity" class="page-content p-6 space-y-4">
+                <h2 class="text-xl font-bold text-gray-800">Recent Rides</h2>
+                <!-- Dummy Activity Data -->
+                <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-blue-500">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="font-semibold text-lg">Code-Comfort to Lekki</p>
+                        <span class="text-green-600 font-bold">₦3,800</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">15 Nov, 10:30 AM | Completed</p>
+                    <p class="text-xs text-gray-400">V.I. -> Lekki Phase 1</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-red-500">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="font-semibold text-lg">Code-Economy to Airport</p>
+                        <span class="text-red-600 font-bold">Cancelled</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">14 Nov, 08:15 PM | Cancelled by Rider</p>
+                    <p class="text-xs text-gray-400">Ikeja City Mall -> MMA</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-blue-500">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="font-semibold text-lg">Code-Premium to Festac</p>
+                        <span class="text-green-600 font-bold">₦8,500</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">13 Nov, 09:00 AM | Completed</p>
+                    <p class="text-xs text-gray-400">Yaba -> Festac Town</p>
+                </div>
+                <a href="/pages/ride-history.html" class="w-full mt-4 text-blue-600 font-semibold py-2 rounded-xl border border-blue-200 hover:bg-blue-50 transition text-center block">
+                    View Full Ride History
+                </a>
+            </div>
+        </main>
+
+        <!-- FOOTER PLACEHOLDER -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
