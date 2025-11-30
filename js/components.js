@@ -9,7 +9,7 @@ const ComponentsModule = (() => {
     const getComponentPath = () => {
         const path = window.location.pathname;
         // Check if we are in the 'pages' directory
-        if (path.includes('/pages/')) {
+        if (path.includes('/')) {
             return '../components/';
         }
         // Otherwise assume we are at root
@@ -255,7 +255,7 @@ const ComponentsModule = (() => {
         document.addEventListener('click', function (event) {
             if (event.target && event.target.id === 'logoutButton') {
                 event.preventDefault();
-                window.location.href = 'pages/login.html';
+                window.location.href = 'login.html';
             }
         });
     };
