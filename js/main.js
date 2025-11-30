@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
             // Dummy login: always redirects to index.html
-            window.location.href = '/pages/index.html';
+            window.location.href = '/index.html';
         });
     }
 
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         verifyCodeForm.addEventListener('submit', function(event) {
             event.preventDefault();
             // Dummy verification: any code redirects to index.html
-            window.location.href = '/pages/index.html';
+            window.location.href = '/index.html';
         });
     }
 
